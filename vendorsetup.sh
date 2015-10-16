@@ -1,0 +1,3 @@
+add_lunch_combo cm_j5nlte-eng
+add_lunch_combo cm_j5nlte-user
+add_lunch_combo cm_j5nlte-userdebug
