@@ -35,7 +35,7 @@ TARGET_BOARD_PLATFORM := msm8916
 TARGET_BOOTLOADER_BOARD_NAME := msm8916
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci
+BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci androidboot.selinux=permissive
 #TODO: fix custom mkbootimg.mk for making dt.img from source 
 # BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_BASE := 0x80000000
@@ -60,3 +60,25 @@ TARGET_USES_NEW_ION_API :=true
 TARGET_USES_QCOM_BSP := true
 
 TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
+
+
+#TWRP
+BOARD_HAS_NO_MISC_PARTITION := true
+TARGET_RECOVERY_QCOM_RTC_FIX := true
+TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
+TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+DEVICE_RESOLUTION := 720x1280
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+RECOVERY_SDCARD_ON_DATA := true
+TW_NEW_ION_HEAP := true
+TW_TARGET_USES_QCOM_BSP := true
+TW_HAS_DOWNLOAD_MODE := true
+BOARD_HAS_NO_SELECT_BUTTON := true
+TW_IGNORE_MAJOR_AXIS_0 := true
+BOARD_HAS_NO_REAL_SDCARD := true
+
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/twrp.fstab
