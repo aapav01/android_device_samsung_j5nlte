@@ -36,17 +36,16 @@ TARGET_BOOTLOADER_BOARD_NAME := msm8916
 
 # Kernel
 BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci
-BOARD_KERNEL_SEPARATED_DT := true
+#TODO: fix custom mkbootimg.mk for making dt.img from source 
+# BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_OFFSET :=0x00008000
 TARGET_KERNEL_SOURCE := kernel/samsung/j5nlte
 TARGET_KERNEL_CONFIG := cyanogenmod_j5nlte_defconfig
-#TARGET_KERNEL_VARIANT_CONFIG := msm8916_sec_j5nlte_eur_defconfig
 TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
 
-BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01e00000
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --dt device/samsung/j5nlte/dt.img --tags_offset 0x01e00000
 
 # Partition Info
 TARGET_USERIMAGES_USE_EXT4 := true
